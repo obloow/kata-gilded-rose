@@ -43,16 +43,12 @@ class GildedRose {
                 item.sellIn = item.sellIn - 1;
             }
 
-            if (item.sellIn < 0) {
-                if (!item.name.contains("Aged Brie")) {
-                    if (!item.name.contains("Backstage passes")) {
-                        if (item.quality > 0) {
-                            if (!item.name.contains("Sulfuras")) {
-                                item.quality = item.quality - 1;
-                            }
-                        }
-                    }
-                }
+            if (item.sellIn < 0
+                && !item.name.contains("Aged Brie")
+                && !item.name.contains("Backstage passes")
+                && !item.name.contains("Sulfuras")
+                && item.quality > 0) {
+                item.quality = item.quality - 1;
             }
         }
     }
