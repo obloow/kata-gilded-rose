@@ -18,7 +18,7 @@ class GildedRose {
                 && !item.name.contains("Backstage passes")
                 && !item.name.contains("Sulfuras")
                 && item.quality > 0) {
-                item.quality = item.quality - 1;
+                item.quality = item.name.contains("Conjured") ? item.quality - 2 : item.quality - 1;
             } else {
                 if (item.quality < 50) {
                     item.quality = item.quality + 1;
