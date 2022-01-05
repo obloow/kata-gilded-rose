@@ -23,17 +23,17 @@ class GildedRose {
                 if (item.quality < 50) {
                     item.quality = item.quality + 1;
 
+                    if (item.name.contains("Aged Brie")) {
+                        item.quality = item.quality + 1;
+                    }
+
                     if (item.name.contains("Backstage passes")) {
-                        if (item.sellIn < 11) {
-                            if (item.quality < 50) {
-                                item.quality = item.quality + 1;
-                            }
+                        if (item.quality < 50) {
+                            item.quality = item.sellIn < 6 ? item.quality + 2 : item.quality + 1;
                         }
 
-                        if (item.sellIn < 6) {
-                            if (item.quality < 50) {
-                                item.quality = item.quality + 1;
-                            }
+                        if (item.sellIn < 0) {
+                            item.quality = 0;
                         }
                     }
                 }
@@ -51,12 +51,6 @@ class GildedRose {
                                 item.quality = item.quality - 1;
                             }
                         }
-                    } else {
-                        item.quality = 0;
-                    }
-                } else {
-                    if (item.quality < 50) {
-                        item.quality = item.quality + 1;
                     }
                 }
             }
